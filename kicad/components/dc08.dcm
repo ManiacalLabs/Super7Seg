@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP DC08
+D Kingbright DC08-* 7 Segment Dual Display
+K LED 7Seg 7Segment
+F datasheets/DC08-11SRWA-72885.pdf
+$ENDCMP
+#
+#End Doc Library
