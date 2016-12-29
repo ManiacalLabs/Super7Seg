@@ -1280,7 +1280,7 @@ F 3 "" H 5850 1800 50  0000 C CNN
 	0    1    -1   0   
 $EndComp
 Text GLabel 5850 1900 0    50   Input ~ 0
-TX
+RX
 $Comp
 L CONN_01X02 P3
 U 1 1 585F771C
