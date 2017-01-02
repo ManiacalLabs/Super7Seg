@@ -1,4 +1,4 @@
-update=12/23/2016 11:53:48 AM
+update=1/2/2017 3:51:09 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -59,3 +59,5 @@ LibName27=atmel
 LibName28=contrib
 LibName29=valves
 LibName30=components/dc08
+LibName31=components/74hc138
+LibName32=components/74hc238
