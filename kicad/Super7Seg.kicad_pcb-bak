@@ -5,7 +5,7 @@
     (no_connects 0)
     (area 69.139999 49.454999 391.870001 82.625001)
     (thickness 1.6)
-    (drawings 103)
+    (drawings 106)
     (tracks 873)
     (zones 0)
     (modules 46)
@@ -381,12 +381,12 @@
       (xy 0.280132 4.064859)) (layer B.SilkS) (width 0.01))
   )
 
-  (module footprints:DIP28 (layer F.Cu) (tedit 5866A222) (tstamp 58667308)
+  (module footprints:DIP28 (layer F.Cu) (tedit 586B01B0) (tstamp 58667308)
     (at 163.83 57.15 270)
     (descr "28-lead dip package, row spacing 7.62 mm (300 mils)")
     (tags "dil dip 2.54 300")
     (path /585D871A)
-    (fp_text reference IC1 (at 5.08 17.78 360) (layer F.SilkS)
+    (fp_text reference IC1 (at 5.08 17.78 360) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_text value ATMEGA328P-P (at 2.54 17.145 360) (layer F.Fab) hide
@@ -1610,15 +1610,15 @@
     )
   )
 
-  (module Housings_DIP:DIP-16_W7.62mm (layer F.Cu) (tedit 586281B4) (tstamp 586AC7FD)
+  (module Housings_DIP:DIP-16_W7.62mm (layer F.Cu) (tedit 586B01A4) (tstamp 586AC7FD)
     (at 126.365 57.15 270)
     (descr "16-lead dip package, row spacing 7.62 mm (300 mils)")
     (tags "DIL DIP PDIP 2.54mm 7.62mm 300mil")
     (path /586AC672)
-    (fp_text reference IC2 (at 3.81 -2.39 270) (layer F.SilkS)
+    (fp_text reference IC2 (at 3.81 -2.39 270) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value 74HC238 (at 3.81 20.17 270) (layer F.Fab)
+    (fp_text value 74HC238 (at 3.81 20.17 270) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_arc (start 3.81 -1.39) (end 2.81 -1.39) (angle -180) (layer F.SilkS) (width 0.12))
@@ -1675,15 +1675,15 @@
     )
   )
 
-  (module Housings_DIP:DIP-16_W7.62mm (layer F.Cu) (tedit 586281B4) (tstamp 586AC820)
+  (module Housings_DIP:DIP-16_W7.62mm (layer F.Cu) (tedit 586B01A8) (tstamp 586AC820)
     (at 126.365 67.31 270)
     (descr "16-lead dip package, row spacing 7.62 mm (300 mils)")
     (tags "DIL DIP PDIP 2.54mm 7.62mm 300mil")
     (path /586AB8C8)
-    (fp_text reference U1 (at 3.81 -2.39 270) (layer F.SilkS)
+    (fp_text reference U1 (at 3.81 -2.39 270) (layer F.SilkS) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value ULN2003A (at 3.81 20.17 270) (layer F.Fab)
+    (fp_text value ULN2003A (at 3.81 20.17 270) (layer F.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_arc (start 3.81 -1.39) (end 2.81 -1.39) (angle -180) (layer F.SilkS) (width 0.12))
@@ -1962,6 +1962,15 @@
       (xy 0.280132 -4.064859)) (layer F.SilkS) (width 0.01))
   )
 
+  (gr_text ATMEGA328P (at 146.685 60.96) (layer F.SilkS) (tstamp 586B0245)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+  (gr_text ULN2003A (at 117.475 71.12) (layer F.SilkS) (tstamp 586B0177)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
+  (gr_text 74HC238 (at 117.475 60.96) (layer F.SilkS)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
   (gr_line (start 179.959 73.914) (end 179.705 73.66) (angle 90) (layer B.SilkS) (width 0.2))
   (gr_line (start 179.959 73.406) (end 179.959 73.914) (angle 90) (layer B.SilkS) (width 0.2))
   (gr_line (start 179.705 73.66) (end 179.959 73.406) (angle 90) (layer B.SilkS) (width 0.2))
