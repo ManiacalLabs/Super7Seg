@@ -14,7 +14,7 @@
 
   (page A3)
   (layers
-    (0 F.Cu signal hide)
+    (0 F.Cu signal)
     (31 B.Cu signal)
     (32 B.Adhes user)
     (33 F.Adhes user)
@@ -2106,8 +2106,8 @@
   (gr_line (start 74.295 78.74) (end 140.335 78.74) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 74.295 53.34) (end 140.335 53.34) (angle 90) (layer Edge.Cuts) (width 0.15))
 
-  (segment (start 148.59 64.77) (end 148.59 67.905) (width 0.254) (layer F.Cu) (net 1) (status C00000))
-  (segment (start 148.59 67.905) (end 148.55 67.945) (width 0.254) (layer F.Cu) (net 1) (tstamp 5871BAA4) (status C00000))
+  (segment (start 148.59 64.77) (end 148.59 67.905) (width 0.254) (layer F.Cu) (net 1))
+  (segment (start 148.59 67.905) (end 148.55 67.945) (width 0.254) (layer F.Cu) (net 1) (tstamp 5871BAA4))
   (segment (start 173.355 63.5) (end 173.355 66.04) (width 0.254) (layer F.Cu) (net 1))
   (segment (start 108.585 66.04) (end 108.585 67.31) (width 0.254) (layer F.Cu) (net 1))
   (segment (start 108.585 66.04) (end 107.6325 66.9925) (width 0.254) (layer F.Cu) (net 1))
@@ -2169,7 +2169,7 @@
   (segment (start 170.18 55.245) (end 171.45 56.515) (width 0.254) (layer F.Cu) (net 1) (tstamp 586AE3BB))
   (segment (start 146.685 55.245) (end 170.18 55.245) (width 0.254) (layer F.Cu) (net 1) (tstamp 586AE3B9))
   (segment (start 146.05 55.88) (end 146.685 55.245) (width 0.254) (layer F.Cu) (net 1) (tstamp 586AE3B6))
-  (segment (start 146.05 67.945) (end 146.05 64.77) (width 0.254) (layer B.Cu) (net 2) (status C00000))
+  (segment (start 146.05 67.945) (end 146.05 64.77) (width 0.254) (layer B.Cu) (net 2))
   (segment (start 143.51 64.77) (end 146.05 64.77) (width 0.254) (layer B.Cu) (net 2))
   (segment (start 148.59 57.15) (end 148.59 55.88) (width 0.254) (layer B.Cu) (net 2))
   (segment (start 73.66 59.055) (end 71.755 60.96) (width 0.254) (layer B.Cu) (net 2) (tstamp 586AF17D))
