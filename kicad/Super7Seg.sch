@@ -992,7 +992,6 @@ Text GLabel 5850 1300 0    50   Input ~ 0
 TX
 Text GLabel 5850 1200 0    50   Input ~ 0
 RX
-NoConn ~ 5850 1000
 $Comp
 L VCC #PWR05
 U 1 1 585E2AE7
@@ -1465,4 +1464,15 @@ Text GLabel 10550 4000 0    50   Input ~ 0
 DC_B
 Text GLabel 10550 4100 0    50   Input ~ 0
 DC_C
+$Comp
+L GND #PWR?
+U 1 1 5871A688
+P 5850 1000
+F 0 "#PWR?" H 5850 750 50  0001 C CNN
+F 1 "GND" V 5850 800 50  0000 C CNN
+F 2 "" H 5850 1000 50  0000 C CNN
+F 3 "" H 5850 1000 50  0000 C CNN
+	1    5850 1000
+	0    1    -1   0   
+$EndComp
 $EndSCHEMATC
