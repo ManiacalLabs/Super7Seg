@@ -31,7 +31,7 @@ LIBS:valves
 LIBS:dc08
 LIBS:74hc138
 LIBS:74hc238
-LIBS:Super7Seg-cache
+LIBS:Super7Controller-cache
 EELAYER 25 0
 EELAYER END
 $Descr A3 16535 11693
@@ -55,7 +55,7 @@ F 1 "DC08" H 1750 1700 60  0000 C CNN
 F 2 "footprints:DC08" H 2150 1400 60  0001 C CNN
 F 3 "" H 2150 1400 60  0000 C CNN
 	1    1750 1700
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 850  2100 0    50   Input ~ 0
 A1
@@ -98,7 +98,7 @@ F 1 "DC08" H 4000 1700 60  0000 C CNN
 F 2 "footprints:DC08" H 4400 1400 60  0001 C CNN
 F 3 "" H 4400 1400 60  0000 C CNN
 	1    4000 1700
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 3100 2100 0    50   Input ~ 0
 A1
@@ -141,7 +141,7 @@ F 1 "DC08" H 1750 3300 60  0000 C CNN
 F 2 "footprints:DC08" H 2150 3000 60  0001 C CNN
 F 3 "" H 2150 3000 60  0000 C CNN
 	1    1750 3300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 850  3700 0    50   Input ~ 0
 A1
@@ -184,7 +184,7 @@ F 1 "DC08" H 4000 3300 60  0000 C CNN
 F 2 "footprints:DC08" H 4400 3000 60  0001 C CNN
 F 3 "" H 4400 3000 60  0000 C CNN
 	1    4000 3300
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 3100 3700 0    50   Input ~ 0
 A1
@@ -227,7 +227,7 @@ F 1 "DC08" H 1750 4900 60  0000 C CNN
 F 2 "footprints:DC08" H 2150 4600 60  0001 C CNN
 F 3 "" H 2150 4600 60  0000 C CNN
 	1    1750 4900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 850  5300 0    50   Input ~ 0
 A1
@@ -270,7 +270,7 @@ F 1 "DC08" H 4000 4900 60  0000 C CNN
 F 2 "footprints:DC08" H 4400 4600 60  0001 C CNN
 F 3 "" H 4400 4600 60  0000 C CNN
 	1    4000 4900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 3100 5300 0    50   Input ~ 0
 A1
@@ -313,7 +313,7 @@ F 1 "ATMEGA328P-P" H 8050 1500 50  0000 L BNN
 F 2 "footprints:DIP28" H 7650 2900 50  0001 C CIN
 F 3 "" H 7650 2900 50  0000 C CNN
 	1    7650 2900
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 9550 1450 2    50   Input ~ 0
 H_A1
@@ -340,7 +340,7 @@ F 1 "120" V 9400 1450 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 1450 50  0001 C CNN
 F 3 "" H 9400 1450 50  0000 C CNN
 	1    9400 1450
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R13
@@ -351,7 +351,7 @@ F 1 "120" V 9400 1600 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 1600 50  0001 C CNN
 F 3 "" H 9400 1600 50  0000 C CNN
 	1    9400 1600
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R3
@@ -362,7 +362,7 @@ F 1 "120" V 9400 1750 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 1750 50  0001 C CNN
 F 3 "" H 9400 1750 50  0000 C CNN
 	1    9400 1750
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R2
@@ -373,7 +373,7 @@ F 1 "120" V 9400 1900 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 1900 50  0001 C CNN
 F 3 "" H 9400 1900 50  0000 C CNN
 	1    9400 1900
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R1
@@ -384,7 +384,7 @@ F 1 "120" V 9400 2050 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 2050 50  0001 C CNN
 F 3 "" H 9400 2050 50  0000 C CNN
 	1    9400 2050
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R10
@@ -395,7 +395,7 @@ F 1 "120" V 9400 2200 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 2200 50  0001 C CNN
 F 3 "" H 9400 2200 50  0000 C CNN
 	1    9400 2200
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R11
@@ -406,7 +406,7 @@ F 1 "120" V 9400 2350 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 2350 50  0001 C CNN
 F 3 "" H 9400 2350 50  0000 C CNN
 	1    9400 2350
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R4
@@ -417,7 +417,7 @@ F 1 "120" V 9400 2500 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 2500 50  0001 C CNN
 F 3 "" H 9400 2500 50  0000 C CNN
 	1    9400 2500
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Wire Wire Line
 	850  1400 900  1400
@@ -731,7 +731,7 @@ F 1 "120" V 9400 2650 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 2650 50  0001 C CNN
 F 3 "" H 9400 2650 50  0000 C CNN
 	1    9400 2650
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R16
@@ -742,7 +742,7 @@ F 1 "120" V 9400 2800 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 2800 50  0001 C CNN
 F 3 "" H 9400 2800 50  0000 C CNN
 	1    9400 2800
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R8
@@ -753,7 +753,7 @@ F 1 "120" V 9400 2950 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 2950 50  0001 C CNN
 F 3 "" H 9400 2950 50  0000 C CNN
 	1    9400 2950
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R6
@@ -764,7 +764,7 @@ F 1 "120" V 9400 3100 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 3100 50  0001 C CNN
 F 3 "" H 9400 3100 50  0000 C CNN
 	1    9400 3100
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R5
@@ -775,7 +775,7 @@ F 1 "120" V 9400 3250 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 3250 50  0001 C CNN
 F 3 "" H 9400 3250 50  0000 C CNN
 	1    9400 3250
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R14
@@ -786,7 +786,7 @@ F 1 "120" V 9400 3400 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 3400 50  0001 C CNN
 F 3 "" H 9400 3400 50  0000 C CNN
 	1    9400 3400
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R7
@@ -797,7 +797,7 @@ F 1 "120" V 9400 3550 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 3550 50  0001 C CNN
 F 3 "" H 9400 3550 50  0000 C CNN
 	1    9400 3550
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L R R9
@@ -808,7 +808,7 @@ F 1 "120" V 9400 3700 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 9330 3700 50  0001 C CNN
 F 3 "" H 9400 3700 50  0000 C CNN
 	1    9400 3700
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Wire Wire Line
 	8650 2650 9250 2650
@@ -871,7 +871,7 @@ F 1 "VCC" H 6750 1800 50  0000 C CNN
 F 2 "" H 6750 1650 50  0000 C CNN
 F 3 "" H 6750 1650 50  0000 C CNN
 	1    6750 1650
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Connection ~ 6750 1800
 Connection ~ 6750 2100
@@ -886,7 +886,7 @@ F 1 "0.1uF" H 6710 3070 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:C_Disc_D3_P2.5" H 6700 3150 50  0001 C CNN
 F 3 "" H 6700 3150 50  0000 C CNN
 	1    6700 3150
-	-1   0    0    -1  
+	-1   0    0    -1
 $EndComp
 $Comp
 L GND #PWR02
@@ -897,7 +897,7 @@ F 1 "GND" H 6700 3150 50  0000 C CNN
 F 2 "" H 6700 3300 50  0000 C CNN
 F 3 "" H 6700 3300 50  0000 C CNN
 	1    6700 3300
-	-1   0    0    -1  
+	-1   0    0    -1
 $EndComp
 $Comp
 L GND #PWR03
@@ -908,7 +908,7 @@ F 1 "GND" H 6700 3850 50  0000 C CNN
 F 2 "" H 6700 4000 50  0000 C CNN
 F 3 "" H 6700 4000 50  0000 C CNN
 	1    6700 4000
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 Wire Wire Line
 	6750 4000 6700 4000
@@ -925,7 +925,7 @@ F 1 "VCC" H 6700 3150 50  0000 C CNN
 F 2 "" H 6700 3000 50  0000 C CNN
 F 3 "" H 6700 3000 50  0000 C CNN
 	1    6700 3000
-	-1   0    0    -1  
+	-1   0    0    -1
 $EndComp
 Text GLabel 8000 1200 2    50   Input ~ 0
 PC6
@@ -938,7 +938,7 @@ F 1 "10k" V 7850 1050 50  0000 C CNN
 F 2 "footprints:0.125_Resistor" V 7780 1050 50  0001 C CNN
 F 3 "" H 7850 1050 50  0000 C CNN
 	1    7850 1050
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 7450 1200 0    50   Input ~ 0
 RESET
@@ -951,10 +951,10 @@ F 1 "0.1uF" H 7610 1120 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:C_Disc_D3_P2.5" H 7600 1200 50  0001 C CNN
 F 3 "" H 7600 1200 50  0000 C CNN
 	1    7600 1200
-	0    1    -1   0   
+	0    1    -1   0
 $EndComp
 Wire Wire Line
-	7850 900  7850 850 
+	7850 900  7850 850
 Wire Wire Line
 	7700 1200 8000 1200
 Connection ~ 7850 1200
@@ -966,10 +966,10 @@ U 1 1 585E6DD7
 P 6050 1150
 F 0 "P5" H 6050 1500 50  0000 C CNN
 F 1 "UART" V 6150 1150 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x06" H 6050 1150 50  0001 C CNN
+F 2 "misc:Strip_1x06" H 6050 1150 50  0001 C CNN
 F 3 "" H 6050 1150 50  0000 C CNN
 	1    6050 1150
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 5850 1400 0    50   Input ~ 0
 RESET
@@ -985,8 +985,8 @@ F 0 "#PWR05" H 7850 700 50  0001 C CNN
 F 1 "VCC" H 7850 1000 50  0000 C CNN
 F 2 "" H 7850 850 50  0000 C CNN
 F 3 "" H 7850 850 50  0000 C CNN
-	1    7850 850 
-	1    0    0    -1  
+	1    7850 850
+	1    0    0    -1
 $EndComp
 $Comp
 L PWR_FLAG #FLG06
@@ -997,7 +997,7 @@ F 1 "PWR_FLAG" H 5600 3980 50  0000 C CNN
 F 2 "" H 5600 3800 50  0000 C CNN
 F 3 "" H 5600 3800 50  0000 C CNN
 	1    5600 3800
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR07
@@ -1008,7 +1008,7 @@ F 1 "GND" H 5600 3700 50  0000 C CNN
 F 2 "" H 5600 3850 50  0000 C CNN
 F 3 "" H 5600 3850 50  0000 C CNN
 	1    5600 3850
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L VCC #PWR08
@@ -1019,7 +1019,7 @@ F 1 "VCC" H 6050 4000 50  0000 C CNN
 F 2 "" H 6050 3850 50  0000 C CNN
 F 3 "" H 6050 3850 50  0000 C CNN
 	1    6050 3850
-	1    0    0    1   
+	1    0    0    1
 $EndComp
 $Comp
 L PWR_FLAG #FLG09
@@ -1030,7 +1030,7 @@ F 1 "PWR_FLAG" H 6050 3980 50  0000 C CNN
 F 2 "" H 6050 3800 50  0000 C CNN
 F 3 "" H 6050 3800 50  0000 C CNN
 	1    6050 3800
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Wire Wire Line
 	5600 3800 5600 3850
@@ -1047,7 +1047,7 @@ F 1 "VCC" V 5850 1300 50  0000 C CNN
 F 2 "" H 5850 1100 50  0000 C CNN
 F 3 "" H 5850 1100 50  0000 C CNN
 	1    5850 1100
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 $Comp
 L GND #PWR011
@@ -1057,8 +1057,8 @@ F 0 "#PWR011" H 5850 650 50  0001 C CNN
 F 1 "GND" V 5850 700 50  0000 C CNN
 F 2 "" H 5850 900 50  0000 C CNN
 F 3 "" H 5850 900 50  0000 C CNN
-	1    5850 900 
-	0    1    -1   0   
+	1    5850 900
+	0    1    -1   0
 $EndComp
 $Comp
 L CONN_01X02 P6
@@ -1066,10 +1066,10 @@ U 1 1 585F7453
 P 6050 1850
 F 0 "P6" H 6050 2000 50  0000 C CNN
 F 1 "CONN_01X02" V 6150 1850 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x02" H 6050 1850 50  0001 C CNN
+F 2 "misc:Strip_1x02" H 6050 1850 50  0001 C CNN
 F 3 "" H 6050 1850 50  0000 C CNN
 	1    6050 1850
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR012
@@ -1080,7 +1080,7 @@ F 1 "GND" V 5850 1600 50  0000 C CNN
 F 2 "" H 5850 1800 50  0000 C CNN
 F 3 "" H 5850 1800 50  0000 C CNN
 	1    5850 1800
-	0    1    -1   0   
+	0    1    -1   0
 $EndComp
 Text GLabel 5850 1900 0    50   Input ~ 0
 RX
@@ -1090,10 +1090,10 @@ U 1 1 585F771C
 P 6050 2400
 F 0 "P7" H 6050 2550 50  0000 C CNN
 F 1 "CONN_01X02" V 6150 2400 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x02" H 6050 2400 50  0001 C CNN
+F 2 "misc:Strip_1x02" H 6050 2400 50  0001 C CNN
 F 3 "" H 6050 2400 50  0000 C CNN
 	1    6050 2400
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR013
@@ -1104,7 +1104,7 @@ F 1 "GND" V 5850 2150 50  0000 C CNN
 F 2 "" H 5850 2350 50  0000 C CNN
 F 3 "" H 5850 2350 50  0000 C CNN
 	1    5850 2350
-	0    1    -1   0   
+	0    1    -1   0
 $EndComp
 Text GLabel 5850 2450 0    50   Input ~ 0
 TX
@@ -1117,7 +1117,7 @@ F 1 "GND" V 7400 4750 50  0000 C CNN
 F 2 "" H 7400 4950 50  0000 C CNN
 F 3 "" H 7400 4950 50  0000 C CNN
 	1    7400 4950
-	0    -1   1    0   
+	0    -1   1    0
 $EndComp
 $Comp
 L AVR-ISP-6 CON1
@@ -1128,7 +1128,7 @@ F 1 "AVR-ISP-6" H 6685 4620 50  0000 L BNN
 F 2 "footprints:ICSP" V 6430 4890 50  0001 C CNN
 F 3 "" H 6925 4850 50  0000 C CNN
 	1    6950 4850
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 Text GLabel 6500 4950 0    50   Input ~ 0
 PC6
@@ -1145,7 +1145,7 @@ F 1 "VCC" H 7400 4900 50  0000 C CNN
 F 2 "" H 7400 4750 50  0000 C CNN
 F 3 "" H 7400 4750 50  0000 C CNN
 	1    7400 4750
-	0    1    -1   0   
+	0    1    -1   0
 $EndComp
 Text GLabel 7400 4850 2    50   Input ~ 0
 MOSI
@@ -1247,7 +1247,7 @@ F 1 "CONN_01X13" V 10950 2350 50  0000 C CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x13" H 10850 2350 50  0001 C CNN
 F 3 "" H 10850 2350 50  0000 C CNN
 	1    10850 2350
-	0    -1   1    0   
+	0    -1   1    0
 $EndComp
 $Comp
 L CONN_01X09 P4
@@ -1258,7 +1258,7 @@ F 1 "CONN_01X09" V 10950 2650 50  0000 C CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x09" H 10850 2650 50  0001 C CNN
 F 3 "" H 10850 2650 50  0000 C CNN
 	1    10850 2650
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 Text GLabel 3350 6000 1    50   Input ~ 0
 A2
@@ -1313,7 +1313,7 @@ F 1 "CONN_01X13" V 3150 6200 50  0000 C CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x13" H 3050 6200 50  0001 C CNN
 F 3 "" H 3050 6200 50  0000 C CNN
 	1    3050 6200
-	0    -1   1    0   
+	0    -1   1    0
 $EndComp
 $Comp
 L CONN_01X09 P2
@@ -1324,7 +1324,7 @@ F 1 "CONN_01X09" V 3150 6500 50  0000 C CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x09" H 3050 6500 50  0001 C CNN
 F 3 "" H 3050 6500 50  0000 C CNN
 	1    3050 6500
-	0    -1   -1   0   
+	0    -1   -1   0
 $EndComp
 NoConn ~ 8650 4100
 $Comp
@@ -1333,10 +1333,10 @@ U 1 1 586AB8C8
 P 12100 4050
 F 0 "U1" H 12100 4150 50  0000 C CNN
 F 1 "ULN2003A" H 12100 3950 50  0000 C CNN
-F 2 "" H 12100 4050 50  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm" H 12100 4050 50  0001 C CNN
 F 3 "" H 12100 4050 50  0000 C CNN
 	1    12100 4050
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L 74HC238 IC2
@@ -1344,10 +1344,10 @@ U 1 1 586AC672
 P 10950 4000
 F 0 "IC2" H 10800 4650 60  0000 C CNN
 F 1 "74HC238" H 10950 3350 60  0000 C CNN
-F 2 "" H 10950 4000 60  0000 C CNN
+F 2 "Housings_DIP:DIP-16_W7.62mm" H 10950 4000 60  0001 C CNN
 F 3 "" H 10950 4000 60  0000 C CNN
 	1    10950 4000
-	1    0    0    -1  
+	1    0    0    -1
 $EndComp
 $Comp
 L GND #PWR016
@@ -1358,7 +1358,7 @@ F 1 "GND" H 10500 4150 50  0000 C CNN
 F 2 "" H 10500 4300 50  0000 C CNN
 F 3 "" H 10500 4300 50  0000 C CNN
 	1    10500 4300
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 Wire Wire Line
 	10500 4300 10550 4300
@@ -1373,7 +1373,7 @@ F 1 "VCC" H 10500 4650 50  0000 C CNN
 F 2 "" H 10500 4500 50  0000 C CNN
 F 3 "" H 10500 4500 50  0000 C CNN
 	1    10500 4500
-	0    -1   1    0   
+	0    -1   1    0
 $EndComp
 $Comp
 L VCC #PWR018
@@ -1384,7 +1384,7 @@ F 1 "VCC" H 10500 3650 50  0000 C CNN
 F 2 "" H 10500 3500 50  0000 C CNN
 F 3 "" H 10500 3500 50  0000 C CNN
 	1    10500 3500
-	0    -1   1    0   
+	0    -1   1    0
 $EndComp
 Wire Wire Line
 	10550 4500 10500 4500
@@ -1399,7 +1399,7 @@ F 1 "GND" H 10500 3550 50  0000 C CNN
 F 2 "" H 10500 3700 50  0000 C CNN
 F 3 "" H 10500 3700 50  0000 C CNN
 	1    10500 3700
-	0    1    1    0   
+	0    1    1    0
 $EndComp
 Wire Wire Line
 	10500 3700 10550 3700
@@ -1447,6 +1447,6 @@ F 1 "GND" V 5850 800 50  0000 C CNN
 F 2 "" H 5850 1000 50  0000 C CNN
 F 3 "" H 5850 1000 50  0000 C CNN
 	1    5850 1000
-	0    1    -1   0   
+	0    1    -1   0
 $EndComp
 $EndSCHEMATC

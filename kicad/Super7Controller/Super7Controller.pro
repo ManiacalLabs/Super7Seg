@@ -1,4 +1,4 @@
-update=1/2/2017 3:51:09 PM
+update=1/12/2017 9:53:52 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,7 +27,7 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=components
+LibDir=../components
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -58,6 +58,7 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
-LibName30=components/dc08
-LibName31=components/74hc138
-LibName32=components/74hc238
+LibName30=74hc138
+LibName31=74hc238
+LibName32=7400-ic
+LibName33=dc08

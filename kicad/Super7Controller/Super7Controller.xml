@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="D">
   <design>
-    <source>G:\GitHub\Super7Seg\kicad\Super7Seg.sch</source>
+    <source>G:\GitHub\Super7Seg\kicad\Super7Controller\Super7Controller.sch</source>
     <date>1/2/2017 8:51:17 PM</date>
     <tool>Eeschema 4.0.2-stable</tool>
     <sheet number="1" name="/" tstamps="/">
@@ -10,7 +10,7 @@
         <company/>
         <rev/>
         <date/>
-        <source>Super7Seg.sch</source>
+        <source>Super7Controller.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>

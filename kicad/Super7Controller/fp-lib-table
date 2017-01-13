@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name misc)(type KiCad)(uri G:\GitHub\Super7Seg\kicad\misc.pretty)(options "")(descr ""))
+  (lib (name footprints)(type KiCad)(uri G:\GitHub\Super7Seg\kicad\footprints)(options "")(descr ""))
+)
