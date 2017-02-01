@@ -97,17 +97,71 @@ void clear_text(){
     for(i=0; i<12; i++) _character_values[i] = 0b0;
 }
 
-void loop(){
-    long r1 = random(100000, 999999);
-    long r2 = random(100000, 999999);
-    String sr = String(r1) + String(r2);
-    clear_text();
-    for(byte i=0; i<sr.length(); i++){
-        _character_values[i] = characters[uint8_t(sr[i])-48];
-    }
+uint8_t get_char(char c){
+    static uint8_t i;
+    i = uint8_t(c) - CHAR_OFFSET;
+    //since uint, chars below offset will wrap around
+    //to be higher than CHAR_COUNT
+    if(i > CHAR_COUNT - 1) return 0;
+    return characters[i];
+}
 
-    Serial.println(sr);
-    delay(2000);
+#define IN_BUFFER_SIZE 24
+void loop(){
+    static char buf[IN_BUFFER_SIZE];
+    String buffer;
+    static uint8_t count, i;
+    static char c;
+    static bool complete;
+
+    buffer = "";
+    buffer = Serial.readStringUntil('\n');
+    if(buffer.length() > 0){
+        clear_text();
+        if(buffer.length() > 12) buffer = buffer.substring(0, 12);
+        for(i=0; i<buffer.length(); i++){
+            _character_values[i] = get_char(buffer[i]);
+        }
+
+        Serial.println(buffer);
+    }
+    // while(Serial.available() > 0){
+    //     c = Serial.read();
+    //     buffer += c;
+    //     if(c == '\n' || c == "D"){
+    //         Serial.println(buffer);
+    //     }
+    // }
+
+    // if(Serial.available()){
+    //     memset(&buf, 0, sizeof(char)*24);
+    //     count = 0;
+    //     complete = false;
+    //     while(!complete && count < IN_BUFFER_SIZE - 1){
+    //         if(Serial.available()){
+    //             c = Serial.read();
+    //             if(c){
+    //                 buf[count] = Serial.read();
+    //                 if(buf[count] == '\n' || buf[count] == '\r')
+    //                     complete = true;
+    //                 else
+    //                     count++;
+    //             }
+    //         }
+    //     }
+    // }
+    // //empty the buffer
+    // while(Serial.available()){Serial.read();}
+    //
+    // if(count > 0){
+    //     for(i=0; i<count; i++){
+    //         _character_values[i] = get_char(buf[i]);
+    //     }
+    //
+    //     Serial.println(buf);
+    // }
+
+    // delay(500);
 }
 
 //Setup all things interrupt related
@@ -170,5 +224,6 @@ void setup(){
     // Timer1.attachInterrupt(plex);
 
     setInterrupts();
-    Serial.begin(115200);
+    Serial.begin(38400);
+    Serial.setTimeout(1000);
 }
