@@ -102,9 +102,24 @@
 // D
 //####
 
-#define CHAR_OFFSET 48
-#define CHAR_COUNT 75
-uint8_t characters[CHAR_COUNT] = {
+#define CHAR_OFFSET 32
+uint8_t characters[] = {
+    0b00000000, //space
+    0b00000000, //!
+    0b00100010, //"
+    0b00000000, //#
+    0b00000000, //$
+    0b00000000, //%
+    0b00000000, //&
+    0b00000010, //'
+    0b00111001, //(
+    0b00001111, //)
+    0b00000000, //*
+    0b00000000, //+
+    0b00000000, //,
+    0b01000000, //- (minus)
+    0b00000000, //. - special handling
+    0b00000000, ///
     0b00111111, //0
     0b00000110, //1
     0b01011011, //2
@@ -148,12 +163,12 @@ uint8_t characters[CHAR_COUNT] = {
     0b01010010, //X
     0b01101110, //Y
     0b01011011, //Z
-    0b00000000, //[
+    0b00111001, //[
     0b00000000, // backslash
-    0b00000000, //]
+    0b00001111, //]
     0b00000000, //^
-    0b00000000, //_
-    0b00000000, //`
+    0b00001000, //_
+    0b00100000, //`
     0b01011111, //a
     0b01111100, //b
     0b01011000, //c
@@ -181,6 +196,8 @@ uint8_t characters[CHAR_COUNT] = {
     0b01100110, //y
     0b01011011, //z
 };
+
+#define CHAR_COUNT (sizeof(characters) / sizeof(characters[0]))
 
 
 #endif DISPLAY_H

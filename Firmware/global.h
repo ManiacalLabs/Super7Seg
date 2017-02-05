@@ -1,31 +1,40 @@
 #include "display.h"
 
-#define PWM_STEPS 20
-#define PWM_HIGH PWM_STEPS
-#define PWM_LOW 10
+#define PWM_STEPS 10
 volatile byte _pwm_step = 0;
 volatile byte _cath = 0;
+volatile byte _pwm_level = 10;
 
-#define CONFIG_CHECK 42
+#define CONFIG_CHECK 74
 #define CONFIG_BYTE 0
-bool _pwm_level = true;
 #define PWM_BYTE 1
-#define TARGET_BYTE 2
+#define BAUD_BYTE 2
+
+#define BAUD_2400	0
+#define BAUD_4800	1
+#define BAUD_9600	2
+#define BAUD_14400	3
+#define BAUD_19200	4
+#define BAUD_38400	5
+#define BAUD_57600	6
+#define BAUD_76800	7
+
+uint8_t _baud_rate = BAUD_38400;
 
 uint8_t _cur_value;
 uint8_t _character_values[CATH_COUNT*DIG_PER_CATH] = {
-    characters[2],
-    characters[3],
-    characters[4],
-    characters[5],
-    characters[6],
-    characters[7],
-    characters[8],
-    characters[9],
-    characters[0],
-    characters[1],
-    characters[2],
-    characters[3],
+    characters[16],
+    characters[17],
+    characters[18],
+    characters[19],
+    characters[20],
+    characters[21],
+    characters[22],
+    characters[23],
+    characters[24],
+    characters[25],
+    characters[16],
+    characters[17],
 };
 
 #define BIT_SET(b, i) (b & _BV(i))
@@ -38,3 +47,6 @@ uint8_t _character_values[CATH_COUNT*DIG_PER_CATH] = {
 #define PRESCALE1_64 (_BV(CS11) | _BV(CS10))
 #define PRESCALE1_256 _BV(CS12)
 #define PRESCALE1_1024 (_BV(CS12) | _BV(CS10))
+
+//Commands
+#define CMD_BRIGHTNESS 0x10

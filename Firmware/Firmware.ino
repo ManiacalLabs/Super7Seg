@@ -1,4 +1,4 @@
-// #include <EEPROM.h>
+#include <EEPROM.h>
 #include "TimerOne.h"
 #include "display.h"
 // #include "buttons.h"
@@ -7,18 +7,18 @@
 #include "global.h"
 
 void write_config(){
-    // EEPROM.write(CONFIG_BYTE, CONFIG_CHECK);
-    // EEPROM.write(PWM_BYTE, _pwm_level);
-    // EEPROM.write(TARGET_BYTE, _target_speed);
+    EEPROM.write(CONFIG_BYTE, CONFIG_CHECK);
+    EEPROM.write(PWM_BYTE, _pwm_level);
+    EEPROM.write(BAUD_BYTE, _baud_rate);
 }
 
 void read_config(){
-    // if(EEPROM.read(CONFIG_BYTE) != CONFIG_CHECK){
-    //     write_config();
-    // }
-    //
-    // _pwm_level = EEPROM.read(PWM_BYTE);
-    // _target_speed = EEPROM.read(TARGET_BYTE);
+    if(EEPROM.read(CONFIG_BYTE) != CONFIG_CHECK){
+        write_config();
+    }
+
+    _pwm_level = EEPROM.read(PWM_BYTE);
+    _baud_rate = EEPROM.read(BAUD_BYTE);
 }
 
 inline void disp_text(){
@@ -81,15 +81,18 @@ ISR(TIMER1_COMPA_vect){
     clear_digits();
     // set_cathode(6);
 
-    set_cathode(_cath);
-    disp_text();
+    if(_pwm_step < _pwm_level){
+        set_cathode(_cath);
+        disp_text();
+    }
 
 
     _cath += 1;
-    _cath = _cath % CATH_COUNT;
-    // if(_cath >= CATH_COUNT){
-    //     _cath = 0;
-    // }
+    if(_cath >= CATH_COUNT){
+        _cath = 0;
+        _pwm_step++;
+        if(_pwm_step >= PWM_STEPS) _pwm_step = 0;
+    }
 }
 
 void clear_text(){
@@ -105,6 +108,13 @@ uint8_t get_char(char c){
     return characters[i];
 }
 
+void set_brightness(uint8_t val){
+    if(val > PWM_STEPS) val = PWM_STEPS;
+    if(val < 1) val = 1;
+    _pwm_level = val;
+    // write_config();
+}
+
 #define IN_BUFFER_SIZE 256
 void loop(){
     static char buf[IN_BUFFER_SIZE];
@@ -112,52 +122,72 @@ void loop(){
     static int i = 0;
     static int ci = 0;
     static char c;
+    static uint8_t cmd = 0;
+    static int read_amt = 0;
+    static bool complete = false;
 
     while(Serial.available()){
         c = Serial.read();
-        if(c == '\n'){
-            clear_text();
-            Serial.println(buf);
-            for(i=0, ci=0; ci<12 && i<count; i++){
-                c = buf[i];
+        if(count == 0){
+            cmd = read_amt = 0;
+            switch(c){
+                case CMD_BRIGHTNESS:
+                    cmd = CMD_BRIGHTNESS;
+                    read_amt = 3;
+                    break;
+            }
+        }
 
-                if(c == '.'){
-                    _character_values[ci] |= 128;
-                    ci++;
-                }
-                else{
-                    _character_values[ci] = get_char(c);
-                    if((i < IN_BUFFER_SIZE - 1) && buf[i+1] == '.'){
+        buf[count] = c;
+        count++;
+
+        if(cmd == 0){
+            if(c == '\n' || c == '\r'){
+                count--;
+                buf[count] = 0;
+                clear_text();
+                Serial.println(buf); //TODO: Remove this
+                for(i=0, ci=0; ci<12 && i<count; i++){
+                    c = buf[i];
+
+                    if(c == '.'){
                         _character_values[ci] |= 128;
-                        i++;
+                        ci++;
                     }
-                    ci++;
+                    else{
+                        _character_values[ci] = get_char(c);
+                        if((i < IN_BUFFER_SIZE - 1) && buf[i+1] == '.'){
+                            _character_values[ci] |= 128;
+                            i++;
+                        }
+                        ci++;
+                    }
                 }
-            }
-            if(i < count){
-                Serial.println(buf+i);
-            }
+                if(i < count){
+                    Serial.println(buf+i);
+                }
 
-            count = 0;
-            memset(buf, 0, sizeof(char)*IN_BUFFER_SIZE);
+                complete = true;
+            }
         }
         else{
-            buf[count] = c;
-            count++;
+            if(count == read_amt){
+                switch (cmd) {
+                    case CMD_BRIGHTNESS:
+                        set_brightness(buf[1]);
+                }
+
+                complete = true;
+            }
+        }
+
+        if(complete){
+            count = 0;
+            read_amt = 0;
+            complete = false;
+            memset(buf, 0, sizeof(char)*IN_BUFFER_SIZE);
         }
     }
-
-    // buffer = "";
-    // buffer = Serial.readStringUntil('\n');
-    // if(buffer.length() > 0){
-    //     clear_text();
-    //     if(buffer.length() > 12) buffer = buffer.substring(0, 12);
-    //     for(i=0; i<buffer.length(); i++){
-    //         _character_values[i] = get_char(buffer[i]);
-    //     }
-    //
-    //     Serial.println(buffer);
-    // }
 }
 
 //Setup all things interrupt related
@@ -186,7 +216,7 @@ inline void setInterrupts()
 
 void setup(){
     //load config
-    // read_config();
+    read_config();
 
     byte d, i = 0;
 
