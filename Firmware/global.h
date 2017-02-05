@@ -13,7 +13,7 @@ bool _pwm_level = true;
 #define TARGET_BYTE 2
 
 uint8_t _cur_value;
-byte _character_values[CATH_COUNT*DIG_PER_CATH] = {
+uint8_t _character_values[CATH_COUNT*DIG_PER_CATH] = {
     characters[2],
     characters[3],
     characters[4],

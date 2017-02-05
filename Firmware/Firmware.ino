@@ -93,8 +93,7 @@ ISR(TIMER1_COMPA_vect){
 }
 
 void clear_text(){
-    static byte i;
-    for(i=0; i<12; i++) _character_values[i] = 0b0;
+    memset(_character_values, 0, sizeof(byte)*CATH_COUNT*DIG_PER_CATH);
 }
 
 uint8_t get_char(char c){
@@ -106,62 +105,59 @@ uint8_t get_char(char c){
     return characters[i];
 }
 
-#define IN_BUFFER_SIZE 24
+#define IN_BUFFER_SIZE 256
 void loop(){
     static char buf[IN_BUFFER_SIZE];
-    String buffer;
-    static uint8_t count, i;
+    static int count = 0;
+    static int i = 0;
+    static int ci = 0;
     static char c;
-    static bool complete;
 
-    buffer = "";
-    buffer = Serial.readStringUntil('\n');
-    if(buffer.length() > 0){
-        clear_text();
-        if(buffer.length() > 12) buffer = buffer.substring(0, 12);
-        for(i=0; i<buffer.length(); i++){
-            _character_values[i] = get_char(buffer[i]);
+    while(Serial.available()){
+        c = Serial.read();
+        if(c == '\n'){
+            clear_text();
+            Serial.println(buf);
+            for(i=0, ci=0; ci<12 && i<count; i++){
+                c = buf[i];
+
+                if(c == '.'){
+                    _character_values[ci] |= 128;
+                    ci++;
+                }
+                else{
+                    _character_values[ci] = get_char(c);
+                    if((i < IN_BUFFER_SIZE - 1) && buf[i+1] == '.'){
+                        _character_values[ci] |= 128;
+                        i++;
+                    }
+                    ci++;
+                }
+            }
+            if(i < count){
+                Serial.println(buf+i);
+            }
+
+            count = 0;
+            memset(buf, 0, sizeof(char)*IN_BUFFER_SIZE);
         }
-
-        Serial.println(buffer);
+        else{
+            buf[count] = c;
+            count++;
+        }
     }
-    // while(Serial.available() > 0){
-    //     c = Serial.read();
-    //     buffer += c;
-    //     if(c == '\n' || c == "D"){
-    //         Serial.println(buffer);
-    //     }
-    // }
 
-    // if(Serial.available()){
-    //     memset(&buf, 0, sizeof(char)*24);
-    //     count = 0;
-    //     complete = false;
-    //     while(!complete && count < IN_BUFFER_SIZE - 1){
-    //         if(Serial.available()){
-    //             c = Serial.read();
-    //             if(c){
-    //                 buf[count] = Serial.read();
-    //                 if(buf[count] == '\n' || buf[count] == '\r')
-    //                     complete = true;
-    //                 else
-    //                     count++;
-    //             }
-    //         }
-    //     }
-    // }
-    // //empty the buffer
-    // while(Serial.available()){Serial.read();}
-    //
-    // if(count > 0){
-    //     for(i=0; i<count; i++){
-    //         _character_values[i] = get_char(buf[i]);
+    // buffer = "";
+    // buffer = Serial.readStringUntil('\n');
+    // if(buffer.length() > 0){
+    //     clear_text();
+    //     if(buffer.length() > 12) buffer = buffer.substring(0, 12);
+    //     for(i=0; i<buffer.length(); i++){
+    //         _character_values[i] = get_char(buffer[i]);
     //     }
     //
-    //     Serial.println(buf);
+    //     Serial.println(buffer);
     // }
-
-    // delay(500);
 }
 
 //Setup all things interrupt related
