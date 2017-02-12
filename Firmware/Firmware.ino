@@ -115,6 +115,10 @@ void set_brightness(uint8_t val){
     // write_config();
 }
 
+uint8_t wait_next_byte(){
+    while(!Serial.available()){}
+    return Serial.read();
+}
 #define IN_BUFFER_SIZE 256
 void loop(){
     static char buf[IN_BUFFER_SIZE];
@@ -135,18 +139,30 @@ void loop(){
                     cmd = CMD_BRIGHTNESS;
                     read_amt = 3;
                     break;
+                case CMD_RAW:
+                    cmd = CMD_RAW;
+                    read_amt = wait_next_byte();
+                    read_amt += 2;
+                    break;
+                case CMD_BAUD_RATE:
+                    cmd = CMD_BAUD_RATE;
+                    read_amt = 3;
+                    break;
+                case CMD_FACTORY_RESET:
+                    cmd = CMD_FACTORY_RESET;
+                    read_amt = 2;
+                    break;
             }
         }
 
         buf[count] = c;
         count++;
-
         if(cmd == 0){
             if(c == '\n' || c == '\r'){
                 count--;
                 buf[count] = 0;
                 clear_text();
-                Serial.println(buf); //TODO: Remove this
+                // Serial.write(buf); //TODO: Remove this
                 for(i=0, ci=0; ci<12 && i<count; i++){
                     c = buf[i];
 
@@ -164,7 +180,8 @@ void loop(){
                     }
                 }
                 if(i < count){
-                    Serial.println(buf+i);
+                    Serial.write(buf+i);
+                    Serial.write('\n');
                 }
 
                 complete = true;
@@ -175,6 +192,36 @@ void loop(){
                 switch (cmd) {
                     case CMD_BRIGHTNESS:
                         set_brightness(buf[1]);
+                        Serial.write(CMD_BRIGHTNESS);
+                        Serial.write(buf[1]);
+                        Serial.write('\n');
+                        break;
+                    case CMD_RAW:
+                        clear_text();
+                        for(i=0; i<read_amt-2 && i<12; i++){
+                            _character_values[i] = buf[i+1];
+                        }
+                        break;
+                    case CMD_BAUD_RATE:
+                        if(buf[1] >= BAUD_2400 && buf[1] <= BAUD_76800){
+                            _baud_rate = buf[1];
+                            init_serial();
+                            write_config();
+                        }
+                        break;
+                    case CMD_FACTORY_RESET:
+                        clear_text();
+                        _character_values[4] = get_char('r');
+                        _character_values[5] = get_char('e');
+                        _character_values[6] = get_char('s');
+                        _character_values[7] = get_char('e');
+                        _character_values[8] = get_char('t');
+                        // delay(1000);
+                        _baud_rate = BAUD_9600;
+                        _pwm_level = 10;
+                        write_config();
+                        al();
+                        break;
                 }
 
                 complete = true;
@@ -214,10 +261,44 @@ inline void setInterrupts()
 	sei();
 }
 
-void setup(){
-    //load config
-    read_config();
+void init_serial(){
+    // Serial.end();
+    long baud = 9600;
+    switch(_baud_rate){
+        case BAUD_2400:
+            baud = 2400;
+            break;
+        case BAUD_4800:
+            baud = 4800;
+            break;
+        case BAUD_9600:
+            baud = 9600;
+            break;
+        case BAUD_14400:
+            baud = 14400;
+            break;
+        case BAUD_19200:
+            baud = 19200;
+            break;
+        case BAUD_38400:
+            baud = 38400;
+            break;
+        case BAUD_57600:
+            baud = 57600;
+            break;
+        case BAUD_76800:
+            baud = 76800;
+            break;
+        default:
+            baud = 9600;
+    }
 
+    Serial.begin(baud);
+    Serial.setTimeout(1000);
+    delay(10); //give serial a moment to setup
+}
+
+void setup(){
     byte d, i = 0;
 
     // Setup anodes as ouputs
@@ -245,11 +326,10 @@ void setup(){
     REG_MUXB |= _BV(PIN_MUXB);
     REG_MUXC |= _BV(PIN_MUXC);
 
-    //Setup timer for plex
-    // Timer1.initialize(250);
-    // Timer1.attachInterrupt(plex);
-
     setInterrupts();
-    Serial.begin(38400);
-    Serial.setTimeout(1000);
+
+    //load config
+    read_config();
+
+    init_serial();
 }

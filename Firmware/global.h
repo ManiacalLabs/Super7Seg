@@ -5,7 +5,7 @@ volatile byte _pwm_step = 0;
 volatile byte _cath = 0;
 volatile byte _pwm_level = 10;
 
-#define CONFIG_CHECK 74
+#define CONFIG_CHECK 66
 #define CONFIG_BYTE 0
 #define PWM_BYTE 1
 #define BAUD_BYTE 2
@@ -19,13 +19,13 @@ volatile byte _pwm_level = 10;
 #define BAUD_57600	6
 #define BAUD_76800	7
 
-uint8_t _baud_rate = BAUD_38400;
+uint8_t _baud_rate = BAUD_9600;
 
 uint8_t _cur_value;
 uint8_t _character_values[CATH_COUNT*DIG_PER_CATH] = {
-    characters[16],
-    characters[17],
     characters[18],
+    characters[17],
+    characters[16],
     characters[19],
     characters[20],
     characters[21],
@@ -50,3 +50,6 @@ uint8_t _character_values[CATH_COUNT*DIG_PER_CATH] = {
 
 //Commands
 #define CMD_BRIGHTNESS 0x10
+#define CMD_RAW        0x11
+#define CMD_BAUD_RATE  0x12
+#define CMD_FACTORY_RESET 0x13
