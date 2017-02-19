@@ -104,7 +104,7 @@ class Super7(object):
                 packet.append(value)
 
         packet.append('\n')
-        print(list(packet))
+        # print(list(packet))
         self._com.write(packet)
         # time.sleep(1)
         # print([ord(i) for i in list(self._com.read_all())])

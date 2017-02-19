@@ -5,7 +5,7 @@ volatile byte _pwm_step = 0;
 volatile byte _cath = 0;
 volatile byte _pwm_level = 10;
 
-#define CONFIG_CHECK 66
+#define CONFIG_CHECK 42
 #define CONFIG_BYTE 0
 #define PWM_BYTE 1
 #define BAUD_BYTE 2

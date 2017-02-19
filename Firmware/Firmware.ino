@@ -183,6 +183,9 @@ void loop(){
                     Serial.write(buf+i);
                     Serial.write('\n');
                 }
+                else{
+                    Serial.write('\n');
+                }
 
                 complete = true;
             }
@@ -220,7 +223,6 @@ void loop(){
                         _baud_rate = BAUD_9600;
                         _pwm_level = 10;
                         write_config();
-                        al();
                         break;
                 }
 
