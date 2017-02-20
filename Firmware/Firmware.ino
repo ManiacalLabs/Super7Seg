@@ -201,11 +201,20 @@ void loop(){
                         break;
                     case CMD_RAW:
                         clear_text();
-                        for(i=0; i<read_amt-2 && i<12; i++){
-                            _character_values[i] = buf[i+1];
+                        for(i=0; i<read_amt-2; i++){
+                            if(i<12) _character_values[i] = buf[i+1];
+                            else {
+                                if(i==12){
+                                    Serial.write(CMD_RAW);
+                                    Serial.write(read_amt-14);
+                                }
+                                Serial.write(buf[i+1]);
+                            }
                         }
+                        Serial.write('\n');
                         break;
                     case CMD_BAUD_RATE:
+                        // Baud DOES NOT chain!
                         if(buf[1] >= BAUD_2400 && buf[1] <= BAUD_76800){
                             _baud_rate = buf[1];
                             init_serial();
@@ -213,6 +222,7 @@ void loop(){
                         }
                         break;
                     case CMD_FACTORY_RESET:
+                        // Reset DOES NOT chain!
                         clear_text();
                         _character_values[4] = get_char('r');
                         _character_values[5] = get_char('e');
