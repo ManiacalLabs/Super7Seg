@@ -200,4 +200,4 @@ uint8_t characters[] = {
 #define CHAR_COUNT (sizeof(characters) / sizeof(characters[0]))
 
 
-#endif DISPLAY_H
+#endif
