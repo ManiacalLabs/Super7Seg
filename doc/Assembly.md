@@ -10,7 +10,7 @@ In this guide, we'll cover the assembly of the Super7Seg serial display. The pro
 - ATMega328p and socket
 - ULN2003AN Darlington transistor array and socket
 - 74HC238 3-to-8 demux and socket
-- 16x 120Ω resistors (brown/red/brown) 
+- 16x 120Ω resistors (brown/red/brown)
 - 1x 10kΩ resistor (brown/black/orange)
 - 2x 0.1uF capacitor
 - 2x 40 pin male header
@@ -79,7 +79,7 @@ Now, install the input header on the right side of the board. There are a few op
 - Install the entire 9 pin header. This will allow you to use *either* the FTDI style 6-pin input or the 3-pin (RX, Gnd, VCC).
 - Just install the 3-pin (RX, Gnd, VCC) header (left most 3 pins below). Recommended for use with Arduino, Pi, etc. via direct GPIO serial.
 - Just install the 6-pin FTDI style header (right most 6 pins below). Required if you want to use an FTDI style USB to serial converter and control the Super7 directly from a regular computer.
-- Just solder wires from your device directly to the inputs mentioned above. 
+- Just solder wires from your device directly to the inputs mentioned above.
 
 We've supplied standard straight male headers but you could also, optionally, install female, or right angle headers if they are preferred.
 
@@ -113,4 +113,4 @@ The provided ATMega328p is pre-programmed and you are ready to go! Upon applying
 
 ![Final Test](/doc/img/Super7Test.gif)
 
-Checkout out the [Usage](/Usage.md) page for more details on using your Super7.
+Checkout out the [Usage](/doc/Usage.md) page for more details on using your Super7.
