@@ -1,9 +1,5 @@
 #include <EEPROM.h>
-#include "TimerOne.h"
 #include "display.h"
-// #include "buttons.h"
-// #include "MsTimer2.h"
-// #include "Narcoleptic.h"
 #include "global.h"
 
 void write_config(){

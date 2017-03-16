@@ -23,18 +23,18 @@ uint8_t _baud_rate = BAUD_38400;
 
 uint8_t _cur_value;
 uint8_t _character_values[CATH_COUNT*DIG_PER_CATH] = {
-    characters[18],
-    characters[17],
-    characters[16],
-    characters[19],
-    characters[20],
-    characters[21],
-    characters[22],
-    characters[23],
-    characters[24],
-    characters[25],
-    characters[16],
-    characters[17],
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
+    0xFF,
 };
 
 #define BIT_SET(b, i) (b & _BV(i))
