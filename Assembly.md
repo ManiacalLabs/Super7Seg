@@ -65,7 +65,7 @@ We've found that the easiest way to solder these resistors in is to clamp the bo
 
 Complete the same process for the remaining 120Ω resistors then snip all the leads from the back.
 
-![Final resistors](/doc/img/16JPG)
+![Final resistors](/doc/img/16.JPG)
 ![Final resistors soldered](/doc/img/17.JPG)
 
 Next, install the IC sockets for each of the 3 chips. Make sure to align the notch in the IC socket with the notch shown on the silkscreen. The easiest way to complete this is to insert the sockets and then just flip the whole board over onto a flat surface. Solder two oposing corner pins on each socket,then pickup the board and ensure they are completely flush against the PCB. If not, reheat those pins and fix. Then solder the remaining pins.
