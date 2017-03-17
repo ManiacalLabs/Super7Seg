@@ -49,7 +49,7 @@ class Commands():
 
 class Super7(object):
 
-    def __init__(self, dev, baudrate=BaudRates.BAUD_9600):
+    def __init__(self, dev, baudrate=BaudRates.BAUD_38400):
         self.dev = dev
         if baudrate in BaudRates._rate_values:
             self.baudrate = BaudRates._rate_values[baudrate]
@@ -124,5 +124,5 @@ class Super7(object):
     def factory_reset(self):
         self.send_command(Commands.FACTORY_RESET)
         time.sleep(1)  # must provide time to reset before reconnect
-        self.baudrate = BaudRates._rate_values[BaudRates.BAUD_9600]
+        self.baudrate = BaudRates._rate_values[BaudRates.BAUD_38400]
         self.connect()

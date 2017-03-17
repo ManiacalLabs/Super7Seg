@@ -11,7 +11,7 @@ msg = ([' ']*TOTAL_CHARS) + [chr(i) for i in range(32, 123)]
 msg = ''.join(msg)
 for i in range(len(msg) + 1):
     s7.write(msg[i:i+TOTAL_CHARS])
-    time.sleep(0.2)
+    time.sleep(0.1)
 
 s7.clear()
 time.sleep(1)
