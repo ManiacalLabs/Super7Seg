@@ -108,7 +108,7 @@ void set_brightness(uint8_t val){
     if(val > PWM_STEPS) val = PWM_STEPS;
     if(val < 1) val = 1;
     _pwm_level = val;
-    // write_config();
+    write_config();
 }
 
 uint8_t wait_next_byte(){
