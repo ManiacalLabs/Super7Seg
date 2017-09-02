@@ -2,7 +2,7 @@ from super7 import Super7, BaudRates
 import serial.tools.list_ports
 import time
 
-TOTAL_CHARS = 12
+TOTAL_CHARS = 36
 
 s7 = Super7(serial.tools.list_ports.comports()[0].device,
             baudrate=BaudRates.BAUD_38400)

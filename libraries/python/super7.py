@@ -84,7 +84,7 @@ class Super7(object):
     def write(self, msg):
         msg = msg.replace('\n', '')
         msg += '\n'
-        self._com.write(msg)
+        self._com.write(msg.encode())
         # time.sleep(1)
         # print(list(self._com.read_all()))
 
@@ -103,7 +103,7 @@ class Super7(object):
             else:
                 packet.append(value)
 
-        packet.append('\n')
+        packet.extend('\n'.encode())
         # print(list(packet))
         self._com.write(packet)
         # time.sleep(1)
