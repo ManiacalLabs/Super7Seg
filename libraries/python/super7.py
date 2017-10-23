@@ -51,12 +51,14 @@ class Super7(object):
 
     def __init__(self, dev, baudrate=BaudRates.BAUD_38400):
         self.dev = dev
-        if baudrate in BaudRates._rate_values:
-            self.baudrate = BaudRates._rate_values[baudrate]
-        else:
-            self.baudrate = baudrate
+        self.baudrate = self.__resolve_baud(baudrate)
         self._com = None
         self.connect()
+
+    def __resolve_baud(self, baudrate):
+        if baudrate in BaudRates._rate_values:
+            baudrate = BaudRates._rate_values[baudrate]
+        return baudrate
 
     @staticmethod
     def findSerialDevices():
@@ -116,9 +118,19 @@ class Super7(object):
         self.send_command(Commands.RAW, count=len(raw_bytes), value=raw_bytes)
 
     def set_baud(self, baudrate):
-        self.send_command(Commands.BAUD, value=baudrate)
+        baudrate = self.__resolve_baud(baudrate)
+        i_rate = None
+        for i, rate in BaudRates._rate_values.items():
+            if rate == baudrate:
+                i_rate = i
+                break
+
+        if i_rate is None:
+            raise ValueError('Invalid baudrate: {}'.format(baudrate))
+
+        self.send_command(Commands.BAUD, value=i_rate)
         time.sleep(1)  # must provide time to set baud before reconnect
-        self.baudrate = BaudRates._rate_values[baudrate]
+        self.baudrate = baudrate
         self.connect()
 
     def factory_reset(self):

@@ -226,7 +226,7 @@ void loop(){
                         _character_values[7] = get_char('e');
                         _character_values[8] = get_char('t');
                         // delay(1000);
-                        _baud_rate = BAUD_9600;
+                        _baud_rate = FACTORY_BAUD;
                         _pwm_level = 10;
                         write_config();
                         break;

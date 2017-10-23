@@ -19,7 +19,8 @@ volatile byte _pwm_level = 10;
 #define BAUD_57600	6
 #define BAUD_76800	7
 
-uint8_t _baud_rate = BAUD_38400;
+#define FACTORY_BAUD BAUD_38400
+uint8_t _baud_rate = FACTORY_BAUD;
 
 uint8_t _cur_value;
 uint8_t _character_values[CATH_COUNT*DIG_PER_CATH] = {

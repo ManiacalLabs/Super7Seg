@@ -5,19 +5,20 @@ import time
 TOTAL_CHARS = 36
 
 s7 = Super7(serial.tools.list_ports.comports()[0].device,
-            baudrate=BaudRates.BAUD_38400)
+            baudrate=BaudRates.BAUD_76800)
 
-msg = ([' ']*TOTAL_CHARS) + [chr(i) for i in range(32, 123)]
+msg = ([' '] * TOTAL_CHARS) + [chr(i) for i in range(32, 123)]
 msg = ''.join(msg)
 for i in range(len(msg) + 1):
-    s7.write(msg[i:i+TOTAL_CHARS])
+    extra = msg[i:i + TOTAL_CHARS].count('.')
+    s7.write(msg[i:i + TOTAL_CHARS + extra])
     time.sleep(0.1)
 
 s7.clear()
 time.sleep(1)
 
 for i in range(0, 256 - TOTAL_CHARS):
-    s7.send_raw([i+a for a in range(TOTAL_CHARS)])
+    s7.send_raw([i + a for a in range(TOTAL_CHARS)])
     time.sleep(0.1)
 
 # s7.write("8."*TOTAL_CHARS)
