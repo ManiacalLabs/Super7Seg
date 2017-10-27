@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../libraries/python/')
 from super7 import Super7, BaudRates
 import serial.tools.list_ports
 import time
@@ -12,20 +14,16 @@ msg = ''.join(msg)
 for i in range(len(msg) + 1):
     extra = msg[i:i + TOTAL_CHARS].count('.')
     s7.write(msg[i:i + TOTAL_CHARS + extra])
-    time.sleep(0.1)
+    time.sleep(0.05)
 
 s7.clear()
-time.sleep(1)
 
-for i in range(0, 256 - TOTAL_CHARS):
+for i in range(0, 64 - TOTAL_CHARS):
     s7.send_raw([i + a for a in range(TOTAL_CHARS)])
-    time.sleep(0.1)
-
-# s7.write("8."*TOTAL_CHARS)
-# s7.set_brightness(10)
+    time.sleep(0.05)
 
 for i in range(1, 11):
     s7.set_brightness(i)
-    time.sleep(1)
+    time.sleep(0.5)
 
 s7.clear()
