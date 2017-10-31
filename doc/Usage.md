@@ -6,7 +6,7 @@ The Super7 is designed to be usable via any device that supports a serial connec
 
 By default the display communicates at 38,400 baud but this can be changed via the provided basic API.
 
-In general usage, however, no special API is needed to communicate with the display.
+In general usage, however, no special API is needed to communicate with the display. But we do provide an easy to use [Python API](/doc/Libraries/Python.md).
 
 ## Alphanumerics
 
@@ -108,7 +108,7 @@ The Super7 supports the following serial baud rates:
 2400, 4800, 9600, 14400, 19200, 38400, 57600, 76800
 ```
 
-The default is 38400 and nothing over 76800 is available as the onboard ATMega328p is run at only 8Mhz internal clock and does not reliably support faster speeds. The provided, however, are more than enough for very speedy updates.
+The default is 38400 and nothing over 76800 is available as the onboard ATMega328p is run at only 8Mhz internal clock and does not reliably support faster speeds. The provided speeds, however, are more than enough for very speedy updates.
 
 If you need to change the set baud rate, send:
 ```
@@ -136,21 +136,28 @@ Note that after this command is set your code must be changed to use the new bau
 
 ### 0x13 - Factory Reset
 
-This is the nuclear option. In the case that you want to rest the brightness and baud rate, a full factory reset can be called using this command. Use the [Factory Reset](/examples/reset/) script to automatically loop through each baud rate and send the reset command. When complete the device should be fully reset back to full brightness and 38400 baud.
+This is the nuclear option. In the case that you want to rest the brightness and baud rate, a full factory reset can be called using this command. When complete the device should be fully reset back to full brightness and 38400 baud.
 
 The full command to send is merely:
 ```
 0x13, \n
 ```
 
+However, this only works if you already know the baud rate the device is set to! To solve that problem we've provided a simply reset python script. Download or clone this repository then change toe the `./libraries/python/` directory in your terminal. Finally, run the command:
+```
+python reset.py [COM_DEVICE]
+```
+
+`COM_DEVICE` is whatever the system path to your serial port is. Optionally you can provide one of the above listed baud rates to set it to that specific rate. Otherwise it will reset to the default 38400 baud.
+
 ## Display Chaining
 
-If only using one display, you never need worry about this but you can chain one display to another using the TX, Ground, Power pins on the output side of the control board. Simply connect these 3 pins to the matching RX, Ground, and Power on the next display.
+If only using one display, you never need worry about this but you can chain one display to another using the TX, Ground, Power pins on the output side of the control board. Simply connect these 3 pins to the matching RX, Ground, and Power on the next display. Up to 10 displays can be chained for 120 total digits!
 
-For normal alphanumeric usage, anything over 12 digits is automatically passed via the output header to the next display up to 20 displays or 255 characters total. If, for example, a 30 character string is passed the the first 12 display on the first display which then outputs starting from character 13 to the next display. The next display will display the next 12 characters and then pass the final 6 characters to the next display in the chain. The only exception here is decimal characters as described above.
+For normal alphanumeric usage, anything over 12 digits is automatically passed via the output header to the next display up to 20 displays or 255 characters total. If, for example, a 30 character string is passed to the first 12 display on the first display which then outputs starting from character 13 to the next display. The next display will display the next 12 characters and then pass the final 6 characters to the next display in the chain. The only exception here is decimal characters as described above.
 
 For the brightness command, the display will always just send the same command to the output so that any chained display picks it up. This will continue on with all displays in the chain.
 
 For the raw command the same basic process as with alphanumeric strings occurs except that if remaining values are detected the command sent to the next display will be changed such that the length value is updated accordingly.
 
-The baud rate and factory reset commands, however, do *not* chain to additional displays. These must be sent to each one indvidually.
+The baud rate and factory reset commands, however, do *not* chain to additional displays. These must be sent to each one individually.

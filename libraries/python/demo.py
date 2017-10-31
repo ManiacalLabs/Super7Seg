@@ -34,9 +34,9 @@ TOTAL_CHARS = 36
 
 
 def scroll_msg(msg, delay=0.1):
-    msg = ''.join(([' ']*TOTAL_CHARS)) + msg
+    msg = ''.join(([' '] * TOTAL_CHARS)) + msg
     for i in range(len(msg) + 1):
-        s7.write(msg[i:i+TOTAL_CHARS])
+        s7.write(msg[i:i + TOTAL_CHARS])
         time.sleep(delay)
 
 

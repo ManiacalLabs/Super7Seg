@@ -1,6 +1,19 @@
-# Super7Seg Python Library
+# Super7 Python Library
 
-If using the Super7Seg via either a USB to serial adapter or on a platform like the Raspberry Pi with direct you can use the provided Python module at [/libraries/python/super7.py](/libraries/python/super7.py). It's not absolutely necessary as you can just directly interface with the display as documented on the [Usage](/doc/Usage.md) page, but this module wraps everything in an much easier to use class.
+If using the Super7Seg via either a USB to serial adapter or on a platform like the Raspberry Pi with direct you can use the provided Python module at [/libraries/python/](/libraries/python/). It's not absolutely necessary as you can just directly interface with the display as documented on the [Usage](/doc/Usage.md) page, but this module wraps everything in an much easier to use class.
+
+For examples, check out the [demo.py](/libraries/python/demo.py) and [test.py](/libraries/python/test.py)
+
+To install the `super7` python module, download or clone this repository to your local system, navigate to `<Super7Seg>/libraries/python/` in your terminal and run:
+```
+python setup.py install
+```
+
+Now you will be able to import the module via:
+```
+import super7
+s7 = super7.Super7(dev, baudrate)
+```
 
 ## Super7 Methods
 
